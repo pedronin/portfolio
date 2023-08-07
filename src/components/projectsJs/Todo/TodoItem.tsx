@@ -11,13 +11,10 @@ interface ITodoItem {
 const TodoItem: React.FC<ITodoItem> = ({ item }) => {
   const dispatch = useAppDispatch();
   return (
-    <li className={`${styles.todo__item} ${item.completed ? `${styles.completed}` : ''}`}>
-      <input
-        checked={item.completed}
-        onChange={() => dispatch(completedTodo(item.text))}
-        className={styles.todo__checkbox}
-        type="checkbox"
-      />
+    <li
+      onClick={() => dispatch(completedTodo(item.text))}
+      className={`${styles.todo__item} ${item.completed ? `${styles.completed}` : ''}`}>
+      <input checked={item.completed} onChange={() => {}} className={styles.todo__checkbox} type="checkbox" />
       <p className={styles.todo__text}>{item.text}</p>
       <button
         onClick={() => dispatch(removeTodo(item.text))}

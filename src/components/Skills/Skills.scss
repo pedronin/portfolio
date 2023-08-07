@@ -1,0 +1,37 @@
+.skills {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+
+  &__list {
+  }
+
+  &__item {
+    position: relative;
+    font-size: 22px;
+    padding-bottom: 8px;
+    padding-right: 32px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: url('../../assets/img/checkmark.svg'), rgba(159, 159, 159, 0.192);
+        background-size: 24px;
+        background-position: center;
+    }
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     width: 28px;
+    //     height: 28px;
+    //     background-color: rgba(159, 159, 159, 0.192);
+    // }
+  }
+}

@@ -1,30 +1,43 @@
 import React from 'react';
 import ProjectBlock from '../components/ProjectBlock';
 
+import shopImg from '../assets/img/shop_page.png';
+import markupImg from '../assets/img/markup_page.png';
+import Skills from '../components/Skills';
+
 const projContent = [
   {
-    title: 'Проекты на чистом js',
-    descr: 'В ходе изучения языка, я делал мини проекты, закрепляя материал на практике.',
-    url: '/js'
+    title: 'Интернет магазин',
+    descr:
+      'Интернет магазин напианный на React + Redux Toolkit, немного RTK query и другим множеством различных библиотек.',
+    url: 'https://pedronin.github.io/DINIS/',
+    img: shopImg,
+    gitHubUrl: 'https://github.com/pedronin/DINIS'
   },
   {
-    title: 'Проекты React.js',
-    descr: 'В ходе изучения языка, я делал мини проекты, закрепляя материал на практике.',
-    url: '/react'
+    title: 'Мини работы',
+    descr:
+      'В ходе изучения програмирования, я делал множество интересных pet проектов, закрепляя материал на практике.',
+    url: '/js',
+    gitHubUrl: 'https://github.com/pedronin/portfolio'
   },
   {
-    title: 'Верстка',
-    descr: 'В ходе изучения языка, я делал мини проекты, закрепляя материал на практике.',
-    url: '/markup'
-  },
+    title: 'Сайт художника',
+    descr: 'Верстка + небольшой функционал. Множество слайдеров и попапов',
+    url: 'https://akkuratnovaart.ru/',
+    img: markupImg,
+    gitHubUrl: 'https://github.com/pedronin/AkkuratnovaArt'
+  }
 ];
 
 const Home: React.FC = () => {
   return (
     <>
       {projContent.map((proj, i) => (
-        <ProjectBlock title={proj.title} descr={proj.descr} url={proj.url} key={i} />
+        <ProjectBlock {...proj} key={i} />
       ))}
+
+      <Skills />
     </>
   );
 };

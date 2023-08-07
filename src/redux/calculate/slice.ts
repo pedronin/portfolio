@@ -3,7 +3,7 @@ import { ICalculateSlice } from './type';
 
 const initialState: ICalculateSlice = {
   // все опереции и числа хранятся в виде масива
-  out: [],
+  out: ['0'],
 };
 
 const calculateSlice = createSlice({
@@ -42,21 +42,40 @@ const calculateSlice = createSlice({
           }
           arr.splice(0, 3, res.toString());
         }
-        state.out = arr
+        state.out = [Number(arr[0]).toFixed(2)];
       }
     },
     enteringNumber(state, action) {
-      const lastEl = Number(state.out.at(-1));
+      if (state.out.length === 1 && state.out[0] === '0') state.out = [];
+
+      const lastEl = state.out.at(-1);
+
+      // отмена лишних точек
+      if (action.payload === '.' && lastEl?.includes('.')) {
+        return;
+      }
+
+      // если введена просто '.' то вводим ее вместе с ноликом
+      if (!lastEl && action.payload === '.') {
+        state.out.push('0.');
+        return;
+      }
+
       // при переводе строки в число получим NaN / !!NaN === false
-      if (!!lastEl) {
+      if (!!Number(lastEl) || lastEl === '.' || lastEl?.includes('.')) {
         // если последний элемент в масиве число то сращиваем их
         // если нет то просто пушим
         state.out = [...state.out.splice(0, state.out.length - 1), lastEl + action.payload];
       } else {
+        if (action.payload === '.') {
+          state.out.push('0.');
+          return;
+        }
         state.out.push(action.payload);
       }
     },
     enteringOperator(state, action) {
+      // отменна лишних операторов
       const lastEl = Number(state.out.at(-1));
       if (!lastEl || isNaN(lastEl)) {
         return;
@@ -79,9 +98,11 @@ const calculateSlice = createSlice({
       } else {
         state.out = [...state.out.splice(0, state.out.length - 1)];
       }
+      if (state.out.length === 0) state.out = ['0'];
     },
     clearOut(state) {
       state.out = [];
+      if (state.out.length === 0) state.out = ['0'];
     },
   },
 });

@@ -1,13 +1,16 @@
 import React from 'react';
 
+import githubIcon from '../assets/img/socialIcon/github_icon.svg';
+import { Link } from 'react-router-dom';
+
 const Header: React.FC = () => {
   return (
     <header className="header">
-      <a href="">
+      <Link to="/">
         <div className="header__githab">
-          <img src="./img/githab_icon.svg" alt="githab" />
+          <img src={githubIcon} />
         </div>
-      </a>
+      </Link>
     </header>
   );
 };

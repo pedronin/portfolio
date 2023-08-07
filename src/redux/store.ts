@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import todo from './todo/slice';
 import calculate from './calculate/slice';
-import passGen from './passGenSlice/slice';
+import passGen from './passGenerate/slice';
 
 export const store = configureStore({
   reducer: {

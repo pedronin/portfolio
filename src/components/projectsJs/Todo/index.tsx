@@ -11,39 +11,34 @@ const Todo = () => {
   const dispatch = useAppDispatch();
   const { items } = useAppSelector((state) => state.todo);
 
-
-  const [activeList, seActiveList] = React.useState<EActiveList>(EActiveList.ALL);
+  const [activeList, setActiveList] = React.useState<EActiveList>(EActiveList.ALL);
 
   const onClickAddTodo = () => {
     dispatch(addTodo(outValue));
     setOutValue('');
     if (activeList === EActiveList.COMPLETED) {
-      seActiveList(EActiveList.ALL);
+      setActiveList(EActiveList.ALL);
     }
   };
 
   const onClickClear = () => {
     dispatch(todoClearCmpltd());
-    seActiveList(EActiveList.ALL);
+    setActiveList(EActiveList.ALL);
   };
 
   React.useEffect(() => {
-    console.log(items);
-  }, [items]);
-
-  // React.useEffect(() => {
-  //   function handlerEnter(e) {
-  //     if (e.code === 'Enter') {
-  //       onClickAddTodo()
-  //     }
-  //   }
-  //   document.addEventListener('keydown', handlerEnter)
-  //   return () => document.removeEventListener('keyDown', handlerEnter)
-  // }, [])
+    function handlerEnter(e: KeyboardEvent) {
+      if (e.code === 'Enter') {
+        onClickAddTodo();
+      }
+    }
+    document.addEventListener('keydown', handlerEnter);
+    return () => document.removeEventListener('keydown', handlerEnter);
+  });
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>todos</h1>
+      {/* <h1 className={styles.title}>Todo App</h1> */}
       <div className={styles.todo}>
         <div className={styles.todo__input}>
           <input
@@ -60,19 +55,19 @@ const Todo = () => {
         <div className={styles.todo_wrapper}>
           <ul className={styles.todo__list}>
             {activeList === EActiveList.ALL
-              ? items.map((item, i) => <TodoItem item={item} key={item.text} />)
+              ? items.map((item) => <TodoItem item={item} key={item.text} />)
               : ''}
 
             {activeList === EActiveList.ACTIVE
               ? items
                   .filter((item) => item.completed === false)
-                  .map((item, i) => <TodoItem item={item} key={item.text} />)
+                  .map((item) => <TodoItem item={item} key={item.text} />)
               : ''}
 
             {activeList === EActiveList.COMPLETED
               ? items
                   .filter((item) => item.completed === true)
-                  .map((item, i) => <TodoItem item={item} key={item.text} />)
+                  .map((item) => <TodoItem item={item} key={item.text} />)
               : ''}
           </ul>
         </div>
@@ -80,17 +75,17 @@ const Todo = () => {
           <div className={styles.todo__items_left}>items left</div>
           <div className={styles.todo__bottom_wrapper}>
             <button
-              onClick={() => seActiveList(EActiveList.ALL)}
+              onClick={() => setActiveList(EActiveList.ALL)}
               className={`${styles.todo__all_btn} ${styles.btn_bottom}`}>
               All
             </button>
             <button
-              onClick={() => seActiveList(EActiveList.ACTIVE)}
+              onClick={() => setActiveList(EActiveList.ACTIVE)}
               className={`${styles.todo__active_btn} ${styles.btn_bottom}`}>
               Active
             </button>
             <button
-              onClick={() => seActiveList(EActiveList.COMPLETED)}
+              onClick={() => setActiveList(EActiveList.COMPLETED)}
               className={`${styles.todo__completed_btn} ${styles.btn_bottom}`}>
               Completed
             </button>
