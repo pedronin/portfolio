@@ -1,11 +1,19 @@
 .barleybreak {
-  // padding-top: 90%;
-  // padding-top: 120%;
-  max-width: 420px;
-  aspect-ratio: 0.88;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 400px;
+  &__content {
+    max-width: 420px;
+    aspect-ratio: 0.88;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 400px;
+  }
+
+  h2 {
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 26px;
+  }
 
   iframe {
     position: absolute;

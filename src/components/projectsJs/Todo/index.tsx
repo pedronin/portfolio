@@ -38,7 +38,7 @@ const Todo = () => {
 
   return (
     <div className={styles.wrapper}>
-      {/* <h1 className={styles.title}>Todo App</h1> */}
+      <h2>Заметки</h2>
       <div className={styles.todo}>
         <div className={styles.todo__input}>
           <input

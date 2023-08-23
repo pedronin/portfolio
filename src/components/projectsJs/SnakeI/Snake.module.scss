@@ -1,0 +1,22 @@
+.snake {
+  position: relative;
+  max-width: 340px;
+  margin-bottom: 400px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 77px;
+    left: 1px;
+    width: 339px;
+    height: 419px;
+    z-index: 2;
+    box-shadow: 0px 0px 40px 10px #161618;
+    border-radius: 5px;
+  }
+
+  iframe {
+    border: none;
+    z-index: 1000;
+  }
+}
