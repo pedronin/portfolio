@@ -6,7 +6,6 @@
 
   h2 {
     margin: 0;
-    margin-bottom: 30px;
     text-align: center;
     font-size: 26px;
   }
@@ -28,11 +27,7 @@
     font-family: 'Work Sans', sans-serif;
   }
 }
-// btn {
-//   &:focus {
-//     border: 1px solid #000;
-//   }
-// }
+
 .none {
   display: none !important;
 }
@@ -71,7 +66,6 @@
     border: 1px solid #b6b6b6;
     background-color: #efefef;
     z-index: -11;
-    // box-shadow: 2px 7px 25px 15px #bdbdbd;
     box-shadow: 0 0 25px 15px #3a3a3a;
   }
 
@@ -167,6 +161,7 @@
     margin-right: 10px;
     font-size: 30px;
     margin-right: 10px;
+    transition: opacity .3s ease;
   }
 
   &__bottom {

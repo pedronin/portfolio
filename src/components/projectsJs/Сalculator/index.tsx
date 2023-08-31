@@ -9,6 +9,7 @@ import {
   enteringOperator,
 } from '../../../redux/calculate/slice';
 import { useAppDispatch, useAppSelector } from '../../../Hook/redux';
+import ButtonToGitHub from '../../ButtonToGitHub';
 
 const Сalculator: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,14 @@ const Сalculator: React.FC = () => {
 
   return (
     <div className={styles.calculator}>
-      <h2>Калькулятор как на ios</h2>
+      <div className="flex_wrap">
+        <h2>Калькулятор</h2>
+        <ButtonToGitHub
+          gitHubUrl={
+            'https://github.com/pedronin/portfolio/tree/main/src/components/projectsJs/Сalculator'
+          }
+        />
+      </div>
       <input type="text" className={styles.calculator_screen} value={out.join('')} disabled />
       <div className={styles.calculator_keys}>
         <button

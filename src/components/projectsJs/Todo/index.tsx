@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../../Hook/redux';
 import { addTodo, todoClearCmpltd } from '../../../redux/todo/slice';
 import TodoItem from './TodoItem';
 import { EActiveList } from '../../../redux/todo/type';
+import ButtonToGitHub from '../../ButtonToGitHub';
 
 const Todo = () => {
   const [outValue, setOutValue] = React.useState('');
@@ -34,15 +35,24 @@ const Todo = () => {
     }
     document.addEventListener('keydown', handlerEnter);
     return () => document.removeEventListener('keydown', handlerEnter);
-  });
+  }, [outValue]);
+
+  const onChangeOutValue = (e: React.ChangeEvent<HTMLInputElement>) => setOutValue(e.target.value);
 
   return (
     <div className={styles.wrapper}>
-      <h2>Заметки</h2>
+      <div className="flex_wrap">
+        <h2>Заметки</h2>
+        <ButtonToGitHub
+          gitHubUrl={
+            'https://github.com/pedronin/portfolio/tree/main/src/components/projectsJs/Todo'
+          }
+        />
+      </div>
       <div className={styles.todo}>
         <div className={styles.todo__input}>
           <input
-            onChange={(e) => setOutValue(e.target.value)}
+            onChange={onChangeOutValue}
             value={outValue}
             className={styles.todo__out}
             type="text"

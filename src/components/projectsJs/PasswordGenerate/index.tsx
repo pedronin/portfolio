@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './PasswordGenerate.module.scss';
+import ButtonToGitHub from '../../ButtonToGitHub';
 
 const symbolEl = '!@#$%^&*()_+';
 const lowStringEl = 'abcdefghijklmnopqrstuvwxyz';
@@ -24,7 +25,7 @@ const PasswordGenerate = () => {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    const symbols = used.join('').split(''); // превращаем из 1-4 масивов в строку (т.к мы puch строки в масив)  // превращаем из строки в масив состоящий из каждого элемента
+    const symbols = used.join('').split('');
     const symbolsLength = symbols.length;
     let result = '';
 
@@ -50,9 +51,15 @@ const PasswordGenerate = () => {
 
   return (
     <section className={styles.general}>
-      <h2>Генератор поролей</h2>
+      <div className="flex_wrap">
+        <h2>Генератор поролей</h2>
+        <ButtonToGitHub
+          gitHubUrl={
+            'https://github.com/pedronin/portfolio/tree/main/src/components/projectsJs/PasswordGenerate'
+          }
+        />
+      </div>
       <div className={styles.general__content}>
-
         <div className={styles.password}>
           <div className={styles.out} id="out">
             {out}

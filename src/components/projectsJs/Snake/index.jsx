@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './Snake.module.scss';
 import { SnakeContext } from './SnakeContext';
+import ButtonToGitHub from '../../ButtonToGitHub';
 
 const Snake = () => {
   let step = 0;
@@ -62,8 +63,8 @@ const Snake = () => {
   });
 
   function drawSnake() {
-    setPositionX((prev) => (prev + dx));
-    setPositionY((prev) => (prev + dy));
+    setPositionX((prev) => prev + dx);
+    setPositionY((prev) => prev + dy);
 
     collisionBorder();
 
@@ -86,8 +87,8 @@ const Snake = () => {
 
       // съел ягоду
       if (el.x === berryX && el.y === berryY) {
-        setCurrentTails((prev) => (prev + 1));
-        setScore((prev) => (prev + 1));
+        setCurrentTails((prev) => prev + 1);
+        setScore((prev) => prev + 1);
         randomPositionBerry();
       }
 
@@ -169,11 +170,14 @@ const Snake = () => {
     document.addEventListener('keydown', handler);
 
     return () => document.removeEventListener('keydown', handler);
-  });
+  }, []);
 
   return (
     <section className={styles.snake}>
-      <h2>Игра змейка</h2>
+      <div className="flex_wrap">
+        <h2>Игра змейка</h2>
+        <ButtonToGitHub gitHubUrl={'https://github.com/pedronin/snake'} />
+      </div>
       <div className={styles.snake__content}>
         <div className={styles.game_header}>
           <div className={styles.game_score}>

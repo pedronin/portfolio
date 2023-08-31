@@ -53,6 +53,10 @@ a {
 }
 
 .flex_wrap {
+  margin: 0 auto;
+  width: fit-content;
+  text-align: center;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   column-gap: 10px;

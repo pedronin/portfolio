@@ -14,7 +14,7 @@ const Skills = () => {
         <li className="skills__item">Redux Toolkit, RTK query</li>
         <li className="skills__item">react-router-dom</li>
         <li className="skills__item">Rest API</li>
-        <li className="skills__item">Немного back-end на node.js (express.js, mongoDb)</li>
+        <li className="skills__item">Немного node.js (express.js, MongoDb)</li>
         <li className="skills__item">Git, GitHub</li>
         <li className="skills__item">Gulp, Figma</li>
       </ul>

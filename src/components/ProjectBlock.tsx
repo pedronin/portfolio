@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import githubIcon from '../assets/img/socialIcon/github_icon.svg';
+import ButtonToGitHub from './ButtonToGitHub';
 
 interface IProjectBlock {
   title: string;
@@ -9,9 +10,17 @@ interface IProjectBlock {
   img?: any;
   url: string;
   gitHubUrl: string;
+  gitHubBackUrl?: string;
 }
 
-const ProjectBlock: React.FC<IProjectBlock> = ({ title, descr, img, url, gitHubUrl }) => {
+const ProjectBlock: React.FC<IProjectBlock> = ({
+  title,
+  descr,
+  img,
+  url,
+  gitHubUrl,
+  gitHubBackUrl,
+}) => {
   return (
     <div className="project">
       <h2 className="section-title">{title}</h2>
@@ -30,9 +39,8 @@ const ProjectBlock: React.FC<IProjectBlock> = ({ title, descr, img, url, gitHubU
               <button className="project__content-link btn">Посмотреть</button>
             </Link>
           )}
-          <a href={gitHubUrl} target="_blank">
-            <img src={githubIcon} />
-          </a>
+          <ButtonToGitHub gitHubUrl={gitHubUrl} />
+          {gitHubBackUrl ? <ButtonToGitHub gitHubUrl={gitHubBackUrl} /> : ''}
         </div>
       </div>
     </div>
