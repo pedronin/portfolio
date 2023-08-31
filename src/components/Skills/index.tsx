@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './Skills.scss'
+import './Skills.scss';
 
 const Skills = () => {
   return (
@@ -14,12 +14,12 @@ const Skills = () => {
         <li className="skills__item">Redux Toolkit, RTK query</li>
         <li className="skills__item">react-router-dom</li>
         <li className="skills__item">Rest API</li>
-        <li className="skills__item">Немного node.js (express.js, MongoDb)</li>
+        <li className="skills__item">Немного back-end (express.js, MongoDb)</li>
         <li className="skills__item">Git, GitHub</li>
         <li className="skills__item">Gulp, Figma</li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;

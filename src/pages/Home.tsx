@@ -10,7 +10,7 @@ import Skills from '../components/Skills';
 const projContent = [
   {
     title: 'Blog',
-    descr: 'Фулл стэк приложение React TS + Redux Toolkit + Node.js',
+    descr: 'Фулл стэк приложение React TS + RTK query + Node.js',
     url: 'https://pedronin.github.io/blog-react.js/',
     img: blogImg,
     gitHubUrl: 'https://github.com/pedronin/blog-react.js',
