@@ -27,12 +27,11 @@ const projContent = [
     title: 'Мини работы',
     descr:
       'В ходе изучения програмирования, я делал множество интересных pet проектов, закрепляя материал на практике.',
-    url: '/js',
-    gitHubUrl: 'https://github.com/pedronin/portfolio',
+    url: '/js'
   },
   {
     title: 'Сайт художника',
-    descr: 'Верстка + небольшой функционал. Множество слайдеров и попапов. Недоработанно!',
+    descr: 'Верстка + небольшой функционал. Недоработанно!',
     url: 'https://akkuratnovaart.ru/',
     img: markupImg,
     gitHubUrl: 'https://github.com/pedronin/AkkuratnovaArt',

@@ -9,7 +9,7 @@ interface IProjectBlock {
   descr: string;
   img?: any;
   url: string;
-  gitHubUrl: string;
+  gitHubUrl?: string;
   gitHubBackUrl?: string;
 }
 
@@ -39,7 +39,7 @@ const ProjectBlock: React.FC<IProjectBlock> = ({
               <button className="project__content-link btn">Посмотреть</button>
             </Link>
           )}
-          <ButtonToGitHub gitHubUrl={gitHubUrl} />
+          {gitHubUrl ? <ButtonToGitHub gitHubUrl={gitHubUrl} /> : ''}
           {gitHubBackUrl ? <ButtonToGitHub gitHubUrl={gitHubBackUrl} /> : ''}
         </div>
       </div>
