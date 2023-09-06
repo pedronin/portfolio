@@ -18,7 +18,7 @@ const projContent = [
   },
   {
     title: 'Интернет магазин',
-    descr: 'напиcан на React TS + Redux Toolkit.',
+    descr: 'React TS + Redux Toolkit.',
     url: 'https://pedronin.github.io/DINIS/',
     img: shopImg,
     gitHubUrl: 'https://github.com/pedronin/DINIS',
@@ -27,11 +27,11 @@ const projContent = [
     title: 'Мини работы',
     descr:
       'В ходе изучения програмирования, я делал множество интересных pet проектов, закрепляя материал на практике.',
-    url: '/js'
+    url: '/js',
   },
   {
     title: 'Сайт художника',
-    descr: 'Верстка + небольшой функционал. Недоработанно!',
+    descr: 'Верстка. Недоработанно!',
     url: 'https://akkuratnovaart.ru/',
     img: markupImg,
     gitHubUrl: 'https://github.com/pedronin/AkkuratnovaArt',

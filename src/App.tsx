@@ -22,7 +22,7 @@ const App: React.FC = () => {
         <Route path="/js" element={<ProjectJs />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
